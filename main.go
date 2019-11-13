@@ -1,21 +1,23 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"net/http"
+	"strconv"
 
-	"github.com/gorilla/mux"
+	"github.com/bispoman/go-APIs/routes""
+
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
-	r := mux.NewRouter()
-	r.HandleFunc("/", Hello)
-	http.Handle("/", r)
-	fmt.Printlf("Starting server at 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
-}
 
-func Hello(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(w, "Hello")
+	PORT := 8080
+
+	log.Info("Starting application in port: ", PORT)
+
+	appRoutes := routes.GetRoutes()
+
+	http.Handle("/", appRoutes)
+
+	log.Fatal(http.ListenAndServe(":"+striconv.ParseInt(PORT), nil))
 }
