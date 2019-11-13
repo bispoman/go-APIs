@@ -18,5 +18,7 @@ func main() {
 
 	http.Handle("/", appRoutes)
 
-	log.Fatal(http.ListenAndServe(":"+striconv.ParseInt(PORT), nil))
+	svAddress := ":" + string(PORT)
+
+	log.Fatal(http.ListenAndServe(svAddress, nil))
 }
