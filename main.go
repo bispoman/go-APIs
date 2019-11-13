@@ -2,9 +2,8 @@ package main
 
 import (
 	"net/http"
-	"strconv"
 
-	"github.com/bispoman/go-APIs/routes""
+	"github.com/bispoman/go-APIs/routes"
 
 	log "github.com/sirupsen/logrus"
 )
