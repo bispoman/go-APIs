@@ -12,7 +12,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", Hello)
 	http.Handle("/", r)
-	fmt.Printlf("Starting server at 8080")
+	log.Println("Starting server at 8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
